@@ -35,6 +35,7 @@ services:
       API_DOCS_PATH: ${API_DOCS_PATH:-/api-docs}
       SWAGGER_UI_PATH: ${SWAGGER_UI_PATH:-/swagger-ui.html}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:5174}
 
   nginx:
     image: nginx:alpine
