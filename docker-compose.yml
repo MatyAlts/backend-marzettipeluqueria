@@ -1,6 +1,9 @@
 services:
   backend:
-    image: eclipse-temurin:17-jdk-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: peluqueria-backend:latest
     container_name: peluqueria-backend
     working_dir: /app
     volumes:
