@@ -6,8 +6,6 @@ services:
     image: peluqueria-backend:latest
     container_name: peluqueria-backend
     working_dir: /app
-    volumes:
-      - ./target/peluqueria-backend-1.0.0.jar:/app/app.jar
     command: ["java", "-jar", "app.jar"]
     ports:
       - "8080:8080"
