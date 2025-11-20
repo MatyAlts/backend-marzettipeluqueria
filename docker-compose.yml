@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   backend:
-    image: openjdk:17-jdk-alpine
+    image: eclipse-temurin:17-jdk-alpine
     container_name: peluqueria-backend
     working_dir: /app
     volumes:
