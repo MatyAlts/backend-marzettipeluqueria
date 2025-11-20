@@ -24,8 +24,19 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    env_file:
-      - .env
+    environment:
+      SERVER_PORT: ${SERVER_PORT:-8080}
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DRIVER: ${DB_DRIVER:-org.postgresql.Driver}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-86400000}
+      MERCADOPAGO_ACCESS_TOKEN: ${MERCADOPAGO_ACCESS_TOKEN}
+      MERCADOPAGO_PUBLIC_KEY: ${MERCADOPAGO_PUBLIC_KEY}
+      API_DOCS_PATH: ${API_DOCS_PATH:-/api-docs}
+      SWAGGER_UI_PATH: ${SWAGGER_UI_PATH:-/swagger-ui.html}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
 
   nginx:
     image: nginx:alpine
