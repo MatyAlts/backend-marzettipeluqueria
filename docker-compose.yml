@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  backend:
+    image: openjdk:17-jdk-alpine
+    container_name: peluqueria-backend
+    working_dir: /app
+    volumes:
+      - ./target/peluqueria-backend-1.0.0.jar.original:/app/app.jar
+    command: ["java", "-jar", "app.jar"]
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  nginx:
+    image: nginx:alpine
+    container_name: peluqueria-nginx
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
